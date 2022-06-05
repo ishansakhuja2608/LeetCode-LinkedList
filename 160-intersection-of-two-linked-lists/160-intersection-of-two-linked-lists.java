@@ -23,5 +23,6 @@ public class Solution {
     }
 }
 /*
-if l1 and l2 have different lengths ,then the end of l1 will start from the head of l2 and vice versa, due to this, after a specific number of iterations, both the pointers will end up at equal length, and we can check if there's any intersection point
+if l1 and l2 have different lengths ,then the end of l1 will start from the head of l2 and vice versa, due to this, after a specific number of iterations,
+both the pointers will end up at equal length, and we can check if there's any intersection point
 */
