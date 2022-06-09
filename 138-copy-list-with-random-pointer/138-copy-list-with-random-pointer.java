@@ -47,12 +47,11 @@ class Solution {
             front = iter.next.next;
             
             //extract the copy
-            copy.next = iter.next;
-            copy = copy.next;
+            copy.next = iter.next; // copys next is the deep copy head, so it is originals next
+            copy = copy.next; // for further iterations
             
             //restore the original 
-            iter.next = front;
-            
+            iter.next = front; // for the extraction of other nodes
             iter = front;
         }
         return res.next;
