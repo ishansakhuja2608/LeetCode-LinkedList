@@ -47,10 +47,10 @@ class Solution {
             ListNode l1Next = l1.next; // l1Next = 2
             ListNode l2Next = l2.next; // l2Next = 5
             
-            l1.next = l2; // 1 -> 5  
+            l1.next = l2; // 1 -> 5, first half to second half
             if(l1Next == null)
                 break;
-            l2.next = l1Next; // 5 -> 2
+            l2.next = l1Next; // 5 -> 2, second half to first half
             l1 = l1Next; // l1 = 2
             l2 = l2Next; // l2 = 5
         }
