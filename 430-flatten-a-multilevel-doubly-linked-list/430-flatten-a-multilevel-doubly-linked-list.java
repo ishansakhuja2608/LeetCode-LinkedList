@@ -9,29 +9,35 @@ class Node {
 */
 
 class Solution {
-    public Node flatten(Node head) {
-        Node curr = head;
-        while(curr != null) {
-            if(curr.child != null) {
-                Node tail = findTail(curr.child);
-                if(curr.next != null) {
-                    curr.next.prev = tail;
-                }
-                
-                tail.next = curr.next;
-                curr.next = curr.child; // move down untill the last child and null node
-                curr.child.prev = curr;
-                curr.child = null;
-            }
-            curr = curr.next;
+
+  public Node flatten(Node head) {
+    Node current = head; // reference to the head node
+    while(current != null) {
+      if(current.child != null) {
+          
+        Node tailNode = findTail(current.child);
+          
+        if(current.next != null) {
+          current.next.prev = tailNode;
         }
-        return head;
+          
+        tailNode.next = current.next; // move back to prev level after completion of child level
+        current.next = current.child; // move down untill the last child and the tail node
+        current.child.prev = current; // doubly link
+        current.child = null; 
+          
+      }
+      current = current.next; // other levels
     }
-    
-    private Node findTail(Node child) {
-        while(child.next != null) {
-            child = child.next; // move untill we find a null node.
-        }
-        return child; // tail
+    return head;
+  }
+  
+  private Node findTail(Node childNode) {
+    while(childNode.next != null) {
+      childNode = childNode.next;
     }
+    Node tailNode = childNode;
+
+    return tailNode;
+  }
 }
